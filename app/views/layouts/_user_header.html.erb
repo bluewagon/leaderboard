@@ -1,0 +1,17 @@
+<ul class="left">
+  <li class="divider"></li>
+  <li class="">
+    <a href="">Profile</a>
+  </li>
+  <li class="divider"></li>
+  <li class="has-dropdown">
+    <a href="">Leaderboards</a>
+    <ul class="dropdown">
+      <% current_user.user_rankings.each do |ranking|%>
+        <li><%= link_to ranking.ranking.name, ranking.ranking %></li>
+      <% end %>
+      <li><%= link_to 'Create Leaderboard', new_ranking_path %></li>
+    </ul>
+  </li>
+  <li class="divider"></li>
+</ul>

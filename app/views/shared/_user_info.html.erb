@@ -1,0 +1,36 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <section class="small-4 columns user-info">
+    <header class="centered user-info-header">
+      <a href="">
+        <%= gravatar_for @user, size: 100 %>
+      </a>
+
+      <h2 class="user-title">
+        <%= @user.email %>
+      </h2>
+    </header>
+
+  </section>
+
+  <section class="small-8 columns">
+    <section class="user-feed">
+      <h2>Current Points</h2>
+      <div class="rankings">
+        <ul>
+          <% if @user_rankings.any? %>
+              <% @user_rankings.each do |ranking| %>
+                  <li>
+                    <%= link_to ranking.ranking.name, ranking.ranking %> | <%= ranking.points %> points
+                  </li>
+              <% end %>
+          <% else %>
+              <li>Not part of any leaderboards</li>
+          <% end %>
+
+        </ul>
+
+      </div>
+    </section>
+  </section>
+</div>

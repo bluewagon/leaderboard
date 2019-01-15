@@ -1,0 +1,29 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <header>
+    <h1><%= @ranking.name %></h1>
+    <p><%= @ranking.description %></p>
+    <p>
+      Admins: <br />
+      <% @ranking.user_rankings.each do |user_ranking|  %>
+        <% if user_ranking.admin? %>
+          <%= user_ranking.user.email %>
+        <% end %>
+      <% end %>
+    </p>
+  </header>
+  <section>
+    <ul>
+      <% @ranking.user_rankings.each do |user_ranking| %>
+        <li>
+          <%= user_ranking.user.email %> == <span id="points"><%= user_ranking.points %></span>
+          <% if user_ranking.admin? %>
+            <%= link_to 'Add point', addpoint_user_ranking_path, method: :put, remote: true %>
+            | <%= link_to 'Remove point', removepoint_user_ranking_path, method: :put, remote: true %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+  </section>
+</div>

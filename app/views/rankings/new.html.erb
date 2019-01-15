@@ -1,0 +1,11 @@
+<%= form_for(@ranking, url: rankings_path) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description, required: true %>
+
+    <%= f.submit "Create" %>
+<% end %>

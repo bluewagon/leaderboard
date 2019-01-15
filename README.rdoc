@@ -1,0 +1,3 @@
+== Leaderboard
+
+A simple leaderboard built on rails

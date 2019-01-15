@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  <%= render 'shared/user_info' %>
+<% else %>
+
+<h1>Leaderboard</h1>
+<p>
+  This is the tour page for non-signed in users
+</p>
+
+<% end %>
